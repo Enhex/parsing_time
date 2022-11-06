@@ -32,10 +32,8 @@ for filepath in os.listdir("./"):
 		print(project_name + ': ' + '%.1f' % (parse_fraction * 100) + '%')
 
 # average over all projects
-total_parse_time = 0
-total_codegen_time = 0
+total_parse_fraction = 0
 for t in times.values():
-	total_parse_time += t[0]
-	total_codegen_time += t[1]
-average_fraction = total_parse_time / (total_parse_time + total_codegen_time)
+	total_parse_fraction += t[0] / (t[0] + t[1])
+average_fraction = total_parse_fraction / len(times)
 print('\nparsing time average: ' + '%.1f' % (average_fraction * 100) + '%')
