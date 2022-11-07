@@ -5,5 +5,5 @@ do
 	$file
 done
 
-cd ../../../build
-python3 ../parsing_time/process.py
+cd ../..
+./process.sh
