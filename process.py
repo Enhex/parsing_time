@@ -31,9 +31,18 @@ for filepath in os.listdir("./"):
 		parse_fraction = parse_time / (parse_time + codegen_time)
 		print(project_name + ': ' + '%.1f' % (parse_fraction * 100) + '%')
 
+min_fraction = 101
+max_fraction = -1
 # average over all projects
 total_parse_fraction = 0
 for t in times.values():
-	total_parse_fraction += t[0] / (t[0] + t[1])
+	fraction = t[0] / (t[0] + t[1])
+	total_parse_fraction += fraction
+	if fraction < min_fraction:
+		min_fraction = fraction
+	if fraction > max_fraction:
+		max_fraction = fraction
 average_fraction = total_parse_fraction / len(times)
 print('\nparsing time average: ' + '%.1f' % (average_fraction * 100) + '%')
+print('minimum parsing time: ' + '%.1f' % (min_fraction * 100) + '%')
+print('maximum parsing time: ' + '%.1f' % (max_fraction * 100) + '%')
