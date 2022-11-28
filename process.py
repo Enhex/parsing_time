@@ -43,6 +43,6 @@ for t in times.values():
 	if fraction > max_fraction:
 		max_fraction = fraction
 average_fraction = total_parse_fraction / len(times)
-print('\nparsing time average: ' + '%.1f' % (average_fraction * 100) + '%')
+print('\naverage parsing time: ' + '%.1f' % (average_fraction * 100) + '%')
 print('minimum parsing time: ' + '%.1f' % (min_fraction * 100) + '%')
 print('maximum parsing time: ' + '%.1f' % (max_fraction * 100) + '%')
